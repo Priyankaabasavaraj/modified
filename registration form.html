@@ -1,0 +1,182 @@
+<!DOCtYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,
+	initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<title>Register Form</title>
+	 <script>
+        function passValues(){
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var age = document.getElementById("age").value;
+             var address =  document.getElementById("add").value;
+             var number =  document.getElementById("mobile").value;
+             var emailid =  document.getElementById("mail").value;
+             var dob =  document.getElementById("dob").value;
+
+            localStorage.setItem("FNAME", fname);
+            localStorage.setItem("LNAME",lname);
+            localStorage.setItem("ageValue", age);
+            localStorage.setItem("addressValue", address);
+            localStorage.setItem("numberValue", number);
+            localStorage.setItem("emailValue", emailid);
+            localStorage.setItem("dobValue", dob);
+            return false;
+        }           
+    </script>
+</head>
+
+
+<body>
+	<div class="container">
+    <div id="form">
+		<div class="heading">Registration Form</div>
+			 <form action="view details.html" name="myform" id="form" method="POST" onsubmit="return validation()">
+            <table align="center" cellpadding="15">
+			<div class="card-details">
+				<div class="card-box">
+					<span class="details">First Name</span>
+					<input type="text" id="fname" name="fname" placeholder="Enter your first name" required>
+					<li class="rq">Enter alphabets only</li>
+					<span id="fname"></span>
+					<form onsubmit="return false"></form>
+				</div>
+				<div class="card-box">
+					<span class="details">Last Name</span>
+					<input type="text" placeholder="Enter your last name" required>
+					<li class="rq">*Enter alphabets only</li>
+                        <span id="lnamee"></span>
+				</div>
+				<div class="card-box">
+					<span class="details">Date of Birth</span>
+					<input type="date" placeholder="Enter your DOB" required>
+				</div>
+				<div class="card-box">
+					<span class="details">Age</span>
+					<input type="Number" placeholder="Enter your age" required>
+					<li class="rq">*Enter valid age </li>
+                        <span id="agee"></span>
+				</div>
+				<div class="card-box">
+					<span class="details">E-mail</span>
+					<input type="email" placeholder="Enter your email Id" required>
+				</div>
+				<div class="card-box">
+					<span class="details">Mobile Number</span>
+					<input type="phone" placeholder="Enter your Mob Number" required>
+					<li class="rq">*Enter digits only</li>
+                        <span id="mobilee"></span>
+
+				</div>
+				<div class="card-box">
+					<span class="details">Address</span>
+					<input type="Address" placeholder="Enter your Address" required>
+				</div>
+				<div class="button">
+					 <input type="submit" id="btn" onclick="passValues();"/>
+				</div>
+			</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+
+
+<script type="text/javascript">
+       
+        function validation(){
+            var first_name = document.forms["myform"]["fname"].value;
+            var fname = document.getElementById("fname");
+            var last_name = document.forms["myform"]["lname"].value;
+            var mobile = document.forms["myform"]["mobile"].value;
+            var age = document.forms["myform"]["age"].value;
+            var num = document.forms["myform"]["mobile"].value;
+            var letter=/^[a-zA-Z]*$/;
+
+            // validation for first name
+            if(!isNaN(first_name))
+            {
+                alert("first name should be only alphabets");
+                return false;
+            }
+
+            if (fname.validity.tooLong || fname.validity.tooShort || fname.validity.valueMissing) 
+           {
+                fname.setCustomValidity("Name must be 2-8 characters.");
+                fname.reportValidity();
+            } 
+        
+            //vlidation for last name
+            
+            if(!first_name.match(letter))
+            {
+                alert("First name should contain only alphabets");
+                return false;
+            }
+
+
+
+
+            if(!isNaN(last_name))
+            {
+                alert("last name should be only alphabets");
+                return false;
+            }
+            if(isNaN(mobile))
+            {
+                alert("please enter the numbers only in the box");
+                return false;
+            }
+            if(age>100 || age<1 || isNaN(age))
+            {
+                alert("The age must be a number 1 and 100");
+                return false;
+            }
+            if(num.length!=10)
+            {
+                alert("Phone number must be 10 digits");
+                return false;
+            }
+        }  
+        <script>
+function check () {
+  // (C1) INIT
+  var valid = true, error = "", field = "";
+
+  // (C2) NAME
+  field = document.getElementById("fname");
+  error = document.getElementById("cname");
+  if (!field.checkValidity()) {
+    valid = false;
+    field.classList.add("err");
+    error.innerHTML = "Name must be 2-4 characters\r\n";
+  } else {
+    field.classList.remove("err");
+    error.innerHTML = "";
+  }
+
+  // (C3) NUMBER
+  field = document.getElementById("fnumber");
+  error = document.getElementById("cnumber");
+  if (!field.checkValidity()) {
+    valid = false;
+    field.classList.add("err");
+    error.innerHTML = "Num must be between 1-12\r\n";
+  } else {
+    field.classList.remove("err");
+    error.innerHTML = "";
+  }
+
+  // (C4) RESULT
+  return valid;
+} 
+       
+    </script>
+</body>
+</html>

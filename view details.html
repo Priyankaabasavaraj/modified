@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <title>view details</title>
+    <!-- <link rel="stylesheet" href="style.css"/> -->
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28089;
+            min-height: 100vh;
+        }
+        h1{
+            font-family: italic;
+            font-size: 250%;
+            color: rgb(240, 255, 240);
+        }
+        h3{
+            font-family: sans-serif;
+            font-size: 150%;
+            color: rgb(240, 255, 240);
+            
+        }
+        span{
+            font-size: 100%;
+            color: brown;
+        }
+    </style>
+
+</head>
+<body>
+    <h1><u> Entered Details</u></h1>
+    <h3>
+        First Name : <span id="first-name"/>
+    </h3>
+
+    <h3>
+        Last Name : <span id="last-name"/>
+        </h3>
+   
+    <h3>
+        Date Of Birth :<span id="rdob"/>
+    </h3>
+
+
+    <h3>
+        Age :<span id="rage"/>
+    </h3>
+    
+    <h3>
+        E-mail ID :<span id="remail"/>
+    </h3>
+    
+    <h3>
+        Mobile Number :<span id="rnum"/>
+    </h3>
+
+    <h3>
+        Address : <span id="radd"/>
+    </h3>
+   
+    <a href="registration form.html">Back</a>
+    
+    <script>
+        document.getElementById("first-name").innerHTML=localStorage.getItem("FNAME");
+        document.getElementById("last-name").innerHTML=localStorage.getItem("LNAME");
+        document.getElementById("rage").innerHTML=localStorage.getItem("ageValue");
+        document.getElementById("radd").innerHTML=localStorage.getItem("addressValue");
+        document.getElementById("rnum").innerHTML=localStorage.getItem("numberValue");
+        document.getElementById("remail").innerHTML=localStorage.getItem("emailValue");
+        document.getElementById("rdob").innerHTML=localStorage.getItem("dobValue");
+      
+    </script>
+</body>
+</html>
+
